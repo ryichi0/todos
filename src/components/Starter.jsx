@@ -14,7 +14,7 @@ export default function Starter() {
         <p className="mx-6 mb-4">This productive tool is designed to help
           you better manage your task
           project-wise conveniently!</p>
-        <PrimaryButton><Link>lets start</Link></PrimaryButton>
+        <PrimaryButton text={"let's start"} url={"/home"}/>
       </div>
     </div>
   )

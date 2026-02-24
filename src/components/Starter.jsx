@@ -1,20 +1,30 @@
 import React from 'react'
 import { PrimaryButton } from './shared/Button'
-import { Link } from 'react-router'
+import Icon from './shared/Icon'
 
 export default function Starter() {
   return (
-    <div className="">
-      <div className="relative w-full flex justify-center items-center">
-        <img className="h-full w-full object-cover" src="/images/blur-gradient.png" alt="blur-gradient" />
-        <img className="absolute inset-0 top-10 z-5 scale-75" src="/images/avatar.png" alt="avatar" />
-      </div>
-      <div className="text-center flex flex-col gap-4 px-5.5">
-        <h2>Task Management & To-Do List</h2>
-        <p className="mx-6 mb-4">This productive tool is designed to help
+    <div className="h-full flex flex-col items-center gap-6">
+      <img
+        className="w-8/12 mt-18"
+        src="/images/avatar.png"
+        alt="avatar" />
+      <div
+        className="text-center flex flex-col gap-4 px-5.5">
+        <h2
+          className='text-2xl font-bold'>
+          Task Management & <br />To-Do List</h2>
+        <p
+          className="mx-7 mb-4 text-sm text-gray-600">
+          This productive tool is designed to help
           you better manage your task
           project-wise conveniently!</p>
-        <PrimaryButton text={"let's start"} url={"/home"}/>
+        <PrimaryButton url={"/home"}>
+          let's start
+          <Icon
+            className="absolute right-4"
+            src={"/icons/arrow.png"} />
+        </PrimaryButton>
       </div>
     </div>
   )

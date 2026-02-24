@@ -1,19 +1,27 @@
 import { Route, Routes } from "react-router"
 import Starter from "./components/Starter"
 import Home from "./components/Home"
-
+import Layout from "./components/shared/Layout"
+import Navigation from "./components/Navigation"
+import Calender from "./components/Calender"
+import Document from "./components/Document"
+import AddTask from "./components/AddTask"
+import Profile from "./components/Profile"
 
 function App() {
 
   return (
-    <div className="flex justify-center items-stretch min-h-screen">
-      <div className="min-w-94 max-w-100 border border-black ">
-        <Routes>
-          <Route index element={<Starter />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-        </Routes>
-      </div>
-    </div>
+    <Layout>
+      <Routes>
+        <Route index element={<Starter />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/calender" element={<Calender />}></Route>
+        <Route path="/add-task" element={<AddTask />}></Route>
+        <Route path="/document" element={<Document />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
+      </Routes>
+      <Navigation />
+    </Layout>
   )
 }
 

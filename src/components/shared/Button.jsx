@@ -1,20 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-export function PrimaryButton({ text, url }) {
+export function PrimaryButton({ children, url, onClick }) {
   return (
-    <button
-      className="bg-primary text-white shadow-[0_10px_20px_rgba(37,85,255,.20)] rounded-2xl relative flex justify-center items-center">
-      <Link
-        to={url}
-        className="text-xl font-bold">
-        {text}
-      </Link>
-      <img
-        className="absolute flex right-4.5 scale-50"
-        src="/icons/left-arrow.png"
-        alt="left-arrow" />
-    </button>
+    <Link
+      to={url}
+      className="text-base text-white capitalize font-bold bg-primary shadow-[0_10px_20px_rgba(37,85,255,.20)] rounded-3xl relative flex justify-center items-center py-4"
+      onClick={onClick}>
+      {children}
+    </Link>
+
   )
 }
 export function SecondaryButton({ text }) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PageHeader from './shared/PageHeader'
 import Icon from './shared/Icon'
 import { H1 } from './shared/Typo'
@@ -25,25 +25,51 @@ function FormLabel({ children }) {
 }
 
 export default function AddTask() {
+  const [tasks, setTasks] = useState([])
+  const [newTask, setNewTask] = useState({
+    projectName: "",
+    description: "",
+  })
 
-  function handleForm(e) {
-    e.preventDefault();
+  function handleInputChange(e) {
+    const name = e.target.name
+    const value = e.target.value
+    setNewTask((prev) => {
+      return { ...prev, [name]: value }
+    })
+    console.log(newTask);
+
+
   }
 
   function addTask() {
+    setTasks(prev => [...prev, newTask])
+    setNewTask({})
+    console.log(tasks);
+    
+  }
 
+  function handleForm (e) {
+    e.preventDefault()
+    console.log(e);
+    
   }
   return (
     <div>
 
       <PageHeader>
-        <Link to={"/home"}><Icon src={'/icons/return.png'} /></Link>
+        <Link
+          to={"/home"}>
+          <Icon src={'/icons/return.png'} />
+        </Link>
         <H1>add project</H1>
         <Icon src={'/icons/notification.png'} />
       </PageHeader>
 
       <form
-        className="flex flex-col gap-4 mx-6" action="" onSubmit={handleForm}>
+        className="flex flex-col gap-4 mx-6"
+        action=""
+        onSubmit={handleForm}>
 
         <FormInputBox>
           <FormLabel>
@@ -52,7 +78,10 @@ export default function AddTask() {
           <input
             className='text-lg capitalize placeholder-black w-full'
             type="text"
+            name="projectName"
             placeholder='add new task ...'
+            required
+            onChange={handleInputChange}
           />
         </FormInputBox>
 
@@ -64,6 +93,8 @@ export default function AddTask() {
           <textarea
             className='text-xs font-medium w-full h-30 placeholder-black opacity-90'
             placeholder='This application is designed for super shops. By using this application they can enlist all their products in one place and can deliver. Customers will get a one-stop solution for their daily shopping.'
+            name="description"
+            onChange={handleInputChange}
           />
         </FormInputBox>
 

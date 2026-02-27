@@ -5,7 +5,7 @@ import Layout from "./components/shared/Layout"
 import Navigation from "./components/Navigation"
 import Calender from "./components/Calender"
 import Document from "./components/Document"
-import AddTask from "./components/AddTask"
+import AddTask from "./components/AddTaskPage"
 import Profile from "./components/Profile"
 
 function App() {

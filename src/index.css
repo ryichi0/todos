@@ -3,6 +3,6 @@
   --color-primary : #5F33E1;
   --color-white : #fff;
 }
-body{
-  /* direction: rtl; */
+:root{
+  --primary-color: #5F33E1;
 }

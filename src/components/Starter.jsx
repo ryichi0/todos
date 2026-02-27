@@ -19,7 +19,7 @@ export default function Starter() {
           This productive tool is designed to help
           you better manage your task
           project-wise conveniently!</p>
-        <PrimaryButton url={"/home"}>
+        <PrimaryButton url={"/home"} style={"primary"} size={"lg"}>
           let's start
           <Icon
             className="absolute right-4"

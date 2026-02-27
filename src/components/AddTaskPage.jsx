@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import PageHeader from './shared/PageHeader'
 import Icon from './shared/Icon'
 import { H1 } from './shared/Typo'
-import { PrimaryButton } from './shared/Button';
 import { Link } from 'react-router';
+import { AllTasksContext } from '../App';
 
 
 function FormInputBox({ children }) {
@@ -25,18 +25,20 @@ function FormLabel({ children }) {
 }
 
 function Form() {
+  const {setTasksList} = useContext(AllTasksContext)
   const [newTask, setNewTask] = useState({
     projectName: "",
     description: "",
     startDate: "",
     endDate: "",
+    completed: false,
   })
 
   function handleForm(e) {
     e.preventDefault()
+    setTasksList(prev=>[...prev, newTask])
     e.target.reset()
-    console.log(newTask);
-    
+
   }
 
   function handleInputChange(e) {
@@ -44,7 +46,6 @@ function Form() {
     const value = e.target.value
     setNewTask((prev) => ({ ...prev, [name]: value }))
   }
-
 
   return (
     <form
@@ -103,7 +104,10 @@ function Form() {
           type="date" />
       </FormInputBox>
 
-      <button type="submit">sub</button>
+      <button
+        type="submit">
+        sub
+      </button>
       {/* <PrimaryButton
         type={"submit"}
         style={"primary"}
@@ -116,7 +120,6 @@ function Form() {
 }
 
 export default function AddTaskPage() {
-
 
   return (
     <>

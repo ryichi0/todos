@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Icon from './shared/Icon'
 import PageHeader from './shared/PageHeader'
 import { Link } from 'react-router'
 import { PrimaryButton } from './shared/Button'
+import { AllTasksContext } from '../App'
 
 
 function Profile() {
@@ -11,8 +12,8 @@ function Profile() {
       <div className="flex gap-4 items-center">
         <img className="w-11" src="/images/profile-img.png" alt="profile-img" />
         <div>
-          <span>سلام</span>
-          <p className="text-2xl font-bold">فاطمه قاسمی</p>
+          <span>hello</span>
+          <p className="text-2xl font-bold">Eiva</p>
         </div>
       </div>
       <Icon src={"/icons/notification.png"} alt={"notification"} />
@@ -65,8 +66,8 @@ function HeroSection({ todos_completed, todos_total }) {
   )
 }
 
-export default function Home() {
 
+export default function Home() {
   return (
     <>
       <Profile />
@@ -74,5 +75,6 @@ export default function Home() {
         <HeroSection todos_completed={7} todos_total={8} />
       </div>
     </>
+
   )
 }

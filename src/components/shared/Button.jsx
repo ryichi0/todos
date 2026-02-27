@@ -32,7 +32,20 @@ const ButtonStyle = {
   },
 }
 
-export function PrimaryButton({ children, url, onClick, style, size }) {
+export function PrimaryButton({ children, url, onClick, style, size, type }) {
+
+  if (type) {
+    return (
+      <button
+        type={type}
+        style={ButtonStyle[size][style]}
+        to={url}
+        className="capitalize font-bold shadow-[0_10px_20px_rgba(37,85,255,.20)] rounded-xl relative flex justify-center items-center"
+        onClick={onClick}>
+        {children}
+      </button>
+    )
+  }
   return (
     <Link
       style={ButtonStyle[size][style]}

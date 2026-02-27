@@ -15,6 +15,14 @@ export const AllTasksContext = createContext();
 function App() {
   const [tasksList, setTasksList] = useState([])
 
+  // WE AREEEEEE HEREEEEEEEE
+  function toggleTaskStatus (id) {
+    setTasksList(prev => {
+      prev.map(task => 
+        task.id === id ? {...task, is_completed: !task.is_completed} : task
+      )
+    })
+  }
   return (
     <Layout>
       <AllTasksContext.Provider value={{ tasksList, setTasksList }}>

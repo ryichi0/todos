@@ -5,16 +5,16 @@ import { H1 } from './shared/Typo'
 import { Link } from 'react-router';
 import { AllTasksContext } from '../App';
 import { Box, Label } from './shared/Layout';
+import { PrimaryButton } from './shared/Button';
 
 
 
 function Form() {
   const { setTasksList } = useContext(AllTasksContext)
+  
   const [newTask, setNewTask] = useState({
     projectName: "",
     description: "",
-    startDate: "",
-    endDate: "",
     is_completed: false,
   })
 
@@ -65,41 +65,13 @@ function Form() {
           onChange={handleInputChange}
         />
       </Box>
-
-
-      <Box>
-        <Label>
-          start date
-        </Label>
-        <input
-          className="w-full"
-          name="startDate"
-          onChange={handleInputChange}
-          type="date" />
-      </Box>
-
-
-      <Box>
-        <Label>
-          end date
-        </Label>
-        <input
-          className="w-full"
-          name="endDate"
-          onChange={handleInputChange}
-          type="date" />
-      </Box>
-
-      <button
-        type="submit">
-        sub
-      </button>
-      {/* <PrimaryButton
+      
+      <PrimaryButton
         type={"submit"}
         style={"primary"}
         size={"lg"}>
         add task
-      </PrimaryButton> */}
+      </PrimaryButton>
 
     </form>
   )

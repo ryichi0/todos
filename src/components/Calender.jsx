@@ -23,7 +23,6 @@ export default function Calender() {
             </Label>
             {task.projectName}
             <div className="flex justify-between items-center w-full">
-              <small>{task.startDate}</small>
               {task.is_completed === true 
               ? <span className="text-green-600">done</span> 
               : <span className="text-red-600">not completed</span> 

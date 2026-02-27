@@ -68,6 +68,7 @@ function HeroSection({ todos_completed, todos_total }) {
 
 
 export default function Home() {
+  const {tasksList} = useContext(AllTasksContext)
   return (
     <>
       <Profile />

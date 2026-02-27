@@ -4,39 +4,23 @@ import Icon from './shared/Icon'
 import { H1 } from './shared/Typo'
 import { Link } from 'react-router';
 import { AllTasksContext } from '../App';
+import { Box, Label } from './shared/Layout';
 
 
-function FormInputBox({ children }) {
-  return (
-    <div
-      className="w-full p-4 rounded-xl bg-white shadow-[0px_4px_32px_rgba(0,0,0,0.06)] flex flex-col gap-1.5 justify-between items-start">
-      {children}
-    </div>
-  )
-}
-function FormLabel({ children }) {
-  return (
-    <label
-      htmlFor=""
-      className='text-xs font-light text-gray-500 capitalize'>
-      {children}
-    </label>
-  )
-}
 
 function Form() {
-  const {setTasksList} = useContext(AllTasksContext)
+  const { setTasksList } = useContext(AllTasksContext)
   const [newTask, setNewTask] = useState({
     projectName: "",
     description: "",
     startDate: "",
     endDate: "",
-    completed: false,
+    is_completed: false,
   })
 
   function handleForm(e) {
     e.preventDefault()
-    setTasksList(prev=>[...prev, newTask])
+    setTasksList(prev => [...prev, newTask])
     e.target.reset()
 
   }
@@ -45,6 +29,8 @@ function Form() {
     const name = e.target.name
     const value = e.target.value
     setNewTask((prev) => ({ ...prev, [name]: value }))
+    console.log(newTask);
+    
   }
 
   return (
@@ -53,10 +39,10 @@ function Form() {
       action=""
       onSubmit={handleForm}>
 
-      <FormInputBox>
-        <FormLabel>
+      <Box>
+        <Label>
           project name
-        </FormLabel>
+        </Label>
         <input
           className='text-lg capitalize placeholder-black w-full'
           type="text"
@@ -65,44 +51,44 @@ function Form() {
           required
           onChange={handleInputChange}
         />
-      </FormInputBox>
+      </Box>
 
 
-      <FormInputBox>
-        <FormLabel>
+      <Box>
+        <Label>
           description
-        </FormLabel>
+        </Label>
         <textarea
-          className='text-xs font-medium w-full h-30 placeholder-black opacity-90'
-          placeholder='This application is designed for super shops. By using this application they can enlist all their products in one place and can deliver. Customers will get a one-stop solution for their daily shopping.'
+          className='text-xs font-medium w-full h-15 placeholder-black opacity-90'
+          placeholder='This application is designed for super shops.'
           name="description"
           onChange={handleInputChange}
         />
-      </FormInputBox>
+      </Box>
 
 
-      <FormInputBox>
-        <FormLabel>
+      <Box>
+        <Label>
           start date
-        </FormLabel>
+        </Label>
         <input
           className="w-full"
           name="startDate"
           onChange={handleInputChange}
           type="date" />
-      </FormInputBox>
+      </Box>
 
 
-      <FormInputBox>
-        <FormLabel>
+      <Box>
+        <Label>
           end date
-        </FormLabel>
+        </Label>
         <input
           className="w-full"
           name="endDate"
           onChange={handleInputChange}
           type="date" />
-      </FormInputBox>
+      </Box>
 
       <button
         type="submit">

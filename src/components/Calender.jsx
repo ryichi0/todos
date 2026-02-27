@@ -4,6 +4,7 @@ import Icon from './shared/Icon'
 import { H1 } from './shared/Typo'
 import { Link } from 'react-router'
 import { AllTasksContext } from '../App'
+import { Box, Label } from './shared/Layout'
 
 export default function Calender() {
   const { tasksList } = useContext(AllTasksContext)
@@ -16,7 +17,20 @@ export default function Calender() {
       </PageHeader>
       {tasksList.map(task => {
         return (
-          <h1>{task.projectName}</h1>
+          <Box>
+            <Label>
+              project group
+            </Label>
+            {task.projectName}
+            <div className="flex justify-between items-center w-full">
+              <small>{task.startDate}</small>
+              {task.is_completed === true 
+              ? <span className="text-green-600">done</span> 
+              : <span className="text-red-600">not completed</span> 
+              }
+              
+            </div>
+          </Box>
         )
       })}
     </div>
